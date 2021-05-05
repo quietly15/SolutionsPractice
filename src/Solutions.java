@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Solutions {
 
@@ -76,5 +76,41 @@ public class Solutions {
         return (long) Math.sqrt(sum) * Math.sqrt(sum) == sum ?
                 String.format("[%d, %d], ", target, sum)
                 : null;
+    }
+}
+
+class Kata {
+
+    public static int[] take (int[] arr, int n) {
+        int[] result = new int[n];
+
+        if (n >= 0) System.arraycopy(arr, 0, result, 0, n);
+
+        return result;
+    }
+
+    public static String updateLight(String current) {
+        return switch (current) {
+            case "green" -> "yellow";
+            case "yellow" -> "red";
+            case "red" -> "green";
+            default -> null;
+        };
+    }
+
+
+    public static double findUnique(double[] arr) {
+        Arrays.sort(arr);
+        return arr[0] != arr[1] ? arr[0] : arr[arr.length - 1];
+    }
+
+    public static int solve (int[] arr) {
+        ArrayList<Integer> a = new ArrayList<>();
+        for (int i : arr) a.add(i);
+
+        for (int i: a)
+            if (!a.contains(-i)) return i;
+
+        return 0;
     }
 }
